@@ -1,5 +1,7 @@
 {
   "name": "contactApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
