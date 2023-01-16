@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController, NavController } from '@ionic/angular';
 import { Contact } from '../Contact';
 import { ContactAccessService } from '../services/contact-access.service';
+
 
 @Component({
   selector: 'app-liste-contacts',
@@ -9,7 +11,9 @@ import { ContactAccessService } from '../services/contact-access.service';
 })
 export class ListeContactsPage implements OnInit {
   contacts: Contact[];
-  constructor(private contactservice:ContactAccessService) { }
+  constructor(private contactservice:ContactAccessService, private menuCtrl : MenuController,private navCtrl: NavController) { 
+    this.menuCtrl.enable(true);
+  }
 
   ngOnInit() {
 
@@ -29,4 +33,7 @@ export class ListeContactsPage implements OnInit {
       console.log(this.contacts);
     });
   }
+  ajouterContact(){
+    this.navCtrl.navigateRoot('/ajouter-contact');
+    }
 }
